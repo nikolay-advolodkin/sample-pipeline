@@ -95,25 +95,11 @@ class Calculator extends React.Component {
           scale="f"
           temperature={fahrenheit}
           onTemperatureChange={this.handleFahrenheitChange} />
+          <hr/>
+          <h2>{celsius} Celsius is {fahrenheit} Farhenheit</h2>
       </div>
     );
   }
-}
-
-
-
-function Welcome(props) {
-  return <h1>Hello, {props.name}</h1>;
-}
-
-function Greetings() {
-  return (
-    <div>
-      <Welcome name="Sara" />
-      <Welcome name="Cahal" />
-      <Welcome name="Edite" />
-    </div>
-  );
 }
 
 
