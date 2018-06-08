@@ -9,7 +9,7 @@ pipeline {
         }
         stage('Run Unit Tests') {
             steps {
-                echo "npm test"
+                sh "npm test"
             }
         }
         stage('Deploy Application') {
