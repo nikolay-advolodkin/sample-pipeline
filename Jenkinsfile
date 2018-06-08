@@ -4,6 +4,7 @@ pipeline {
     stages {
         stage('Run Unit Tests') {
             steps {
+                sh "npm install"
                 sh "npm test"
             }
         }
