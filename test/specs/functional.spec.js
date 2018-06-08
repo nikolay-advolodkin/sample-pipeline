@@ -1,4 +1,3 @@
-const webdriver = require('webdriverio');
 const assert = require('assert');
 
 describe('Temperature converter', () => {
@@ -11,11 +10,13 @@ describe('Temperature converter', () => {
         assert.equal(actualTitle, expectedTitle);
     });
 
-    it('should show the correct conversion message', () => {
-        assert.fail("not implemented");
+    it('should have the logo', () => {
+        browser.url('/');
+
+        assert.equal(browser.isVisible(".App-logo"), true);
     });
 
-    it('should have the logo', () => {
+    it('should show the correct conversion message', () => {
         assert.fail("not implemented");
     });
 });
