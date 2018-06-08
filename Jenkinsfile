@@ -19,7 +19,9 @@ pipeline {
         }
         stage('Run Functional Tests') {
             steps {
-                sh "npm run test-wdio"
+                sauce('e16593fe-6899-463b-9595-e5ba5eb46563') {
+                    sh "npm run test-wdio"
+                }
             }
         }
     }
