@@ -11,6 +11,14 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
+    "test-wdio": "./node_modules/.bin/wdio wdio.conf.js",
     "eject": "react-scripts eject"
+  },
+  "devDependencies": {
+    "wdio-mocha-framework": "^0.5.13",
+    "wdio-selenium-standalone-service": "0.0.10",
+    "wdio-sauce-service": "0.4.7",
+    "wdio-spec-reporter": "^0.1.4",
+    "webdriverio": "4.12.0"
   }
 }
