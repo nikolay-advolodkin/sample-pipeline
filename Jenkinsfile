@@ -4,6 +4,7 @@ pipeline {
     stages {
         stage('Build Application') {
             steps {
+                sh "npm init"
                 sh "npm install"
             }
         }
