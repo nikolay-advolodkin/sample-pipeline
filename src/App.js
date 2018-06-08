@@ -16,16 +16,6 @@ function toFahrenheit(celsius) {
   return (celsius * 9 / 5) + 32;
 }
 
-
-
-function BoilingVerdict(props) {
-  if (props.celsius >= 100) {
-    return <p>The water would boil.</p>;
-  }
-  return <p>The water would not boil.</p>;
-}
-
-
 function tryConvert(temperature, convert) {
   const input = parseFloat(temperature);
   if (Number.isNaN(input)) {
@@ -35,7 +25,6 @@ function tryConvert(temperature, convert) {
   const rounded = Math.round(output * 1000) / 1000;
   return rounded.toString();
 }
-
 
 
 class TemperatureInput extends React.Component {
@@ -51,16 +40,40 @@ class TemperatureInput extends React.Component {
   render() {
     const temperature = this.props.temperature;
     const scale = this.props.scale;
+    const className = "scale-type-" + scale;
     return (
       <fieldset>
         <legend>Enter temperature in {scaleNames[scale]}:</legend>
-        <input value={temperature}
+        <input class={className} value={temperature}
                onChange={this.handleChange} />
       </fieldset>
     );
   }
 }
 
+class TemperatureMessage extends React.Component {
+  constructor(props){
+    super(props);
+  }
+
+  render() {
+    const celsius = this.props.celsius;
+    const fahrenheit = this.props.fahrenheit;
+    
+    if (!celsius || !fahrenheit) {
+      return (
+        <div class="temperatureMesssage"> 
+          <h2>Watiting for input...</h2>
+        </div>
+      );
+    }
+    
+    return (
+      <div class="temperatureMesssage">
+        <h2>{celsius} Celsius is {fahrenheit} Farenheit</h2>
+      </div>);
+  };
+}
 
 
 class Calculator extends React.Component {
@@ -96,7 +109,7 @@ class Calculator extends React.Component {
           temperature={fahrenheit}
           onTemperatureChange={this.handleFahrenheitChange} />
           <hr/>
-          <h2>{celsius} Celsius is {fahrenheit} Farhenheit</h2>
+          <TemperatureMessage celsius={celsius} fahrenheit={fahrenheit} />
       </div>
     );
   }

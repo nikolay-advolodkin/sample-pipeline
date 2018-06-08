@@ -16,7 +16,22 @@ describe('Temperature converter', () => {
         assert.equal(browser.isVisible(".App-logo"), true);
     });
 
-    it('should show the correct conversion message', () => {
-        assert.fail("not implemented");
+    it('should show the correct initial conversion message', () => {
+        browser.url('/');
+
+        const actualMessage = browser.getText('.temperatureMesssage');
+        const expectedMessage = "Watiting for input...";
+
+        assert.equal(actualMessage, expectedMessage);
+    });
+
+    it('should show the correct conversion message after conversion', () => {
+        browser.url('/');
+
+        browser.setValue('.scale-type-c', 0);
+
+        const actualMessage = browser.getText('.temperatureMesssage');
+
+        assert.equal(actualMessage.includes("0 Celsius is"), true);
     });
 });
