@@ -2,12 +2,7 @@ pipeline {
     agent any
 
     stages {
-        stage('Run Static Code Analysis') {
-            steps {
-                echo 'Passed'
-            }
-        }
-        stage('Run Unit Tests') {
+       stage('Run Unit Tests') {
             steps {
                 echo 'Passed'
             }
