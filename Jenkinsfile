@@ -14,7 +14,7 @@ pipeline {
         }
         stage('Deploy Application') {
             steps {
-            	echo 'Passed''
+            	echo 'Passed'
             }
         }
         stage('Run Functional Tests') {
