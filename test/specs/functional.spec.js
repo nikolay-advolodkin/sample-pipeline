@@ -32,6 +32,6 @@ describe('Temperature converter', () => {
 
         const actualMessage = browser.getText('.temperatureMesssage');
 
-        assert.equal(actualMessage.includes("0 Celsius is"), true);
+        assert.equal(actualMessage.includes("0 Celsius is 32 Farhenheit"), true);
     });
 });

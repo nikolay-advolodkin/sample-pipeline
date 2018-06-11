@@ -52,7 +52,7 @@ class TemperatureMessage extends React.Component {
     
     return (
       <div className="temperatureMesssage">
-        <h2>{celsius} Celsius is {fahrenheit} Farenheit</h2>
+        <h2>{celsius} Celsius is {fahrenheit} Farhenheit</h2>
       </div>);
   };
 }
