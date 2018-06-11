@@ -2,19 +2,26 @@ pipeline {
     agent any
 
     stages {
-       stage('Run Unit Tests') {
+        stage('Build Application') {
             steps {
-                echo 'Passed'
+                sh "npm install"
+            }
+        }
+        stage('Run Unit Tests') {
+            steps {
+                sh "npm test"
             }
         }
         stage('Deploy Application') {
             steps {
-            	echo 'Passed'
+            	sh "npm start &"
             }
         }
         stage('Run Functional Tests') {
             steps {
-                echo 'Passed'
+                sauce('e16593fe-6899-463b-9595-e5ba5eb46563') {
+                    sh "npm run test-wdio"
+                }
             }
         }
     }
